@@ -27,28 +27,62 @@ export function aufgabe02(args) {
 
 export function aufgabe03(args) {
   const input = args
-  const result = []
-
-  const inputArray = input.split('');                                             //teilt die Eingabe in eine eigene Liste - inputArray
-  const eCount = inputArray.filter(char => char === 'e' || char === 'E').length;  //zählt die Anzahl E im inputArray
-
-  if (eCount >= 4) {                                  //wenn die Anzahl an E grösser|gleich 4 ist...
+  let count = 0
+                            
     for (let i = 0; i < input.length; i++) {          
       const currentElement = input[i]
-      result.push(currentElement)
+      if (currentElement.toLowerCase() === "e" ) {
+        count++
+      }
     }
-  }
-    return result.join("")
-
+    return count
 }
 
-export function aufgabe04 (args) {
+export function aufgabe04(args) {
   const input = args
-  const result = []
+  let count = 1
   
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    
+    if (currentElement === " ") {
+      count++
+    }
   }
-  return result.join("")
+  return count
+}
+
+export function aufgabe09 (args) {
+  const input = args
+  
+  if(input.length === 6) return true
+  if(input.length <= 6 || 6 <= input.length) return false
+
+}
+
+export function aufgabe10 (args) {
+  const input = args
+  
+  if(input.length !== 7) return false
+  if(input[0] !== "#") return false
+  for (let i = 1; i < input.length; i++) {
+    const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
+
+    if(48 <= ascii && ascii <=57) {
+      //Ist eine Ziffer
+    } else if (65 <= ascii && ascii <= 70) {
+      //Ist A-F
+    } else {
+      return false
+    }
+  }
+
+  return true
+}
+
+export function aufgabe11 (args) {
+  const input = args
+  
+  if(input.length !== 1) return null
+  return input[0].charCodeAt(0)
 }
