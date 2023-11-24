@@ -44,12 +44,59 @@ export function aufgabe04(args) {
   
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+
     if (currentElement === " ") {
       count++
     }
   }
   return count
 }
+
+export function aufgabe05 (args) {
+  const input = args
+  
+  for (let i = 0; i < input.length; i++) {
+    const currentAscii = input[i].charCodeAt(0)
+   
+    if (65 <= currentAscii && currentAscii <=90) return true
+    
+  }
+  return false
+}
+
+export function aufgabe06 (args) {
+  const input = args
+
+  if (input.length <= 0) return false
+  
+  for (let i = 0; i < input.length; i++) {
+    const ascii = input[i].charCodeAt(0)
+
+    if(0 <= ascii && ascii <=47) return true
+    else if (58 <= ascii && ascii <= 64) return true
+    else if (91 <= ascii && ascii <= 96) return true
+    else if (123 <= ascii && ascii <= 127) return true
+  
+  }
+  return false
+}
+
+export function aufgabe08(args) {
+  const input = args        
+  const result = []                     
+
+  for (let i = 0; i < input.length; i++) {      
+    const currentElement = input[i]        
+
+    if (currentElement === "e") {   
+      result.push(3)                                                           
+    } else {                                                 
+      result.push(currentElement)                             
+    }
+  }
+  return result.join("")                                        
+}
+
 
 export function aufgabe09 (args) {
   const input = args
@@ -85,4 +132,57 @@ export function aufgabe11 (args) {
   
   if(input.length !== 1) return null
   return input[0].charCodeAt(0)
+}
+
+export function aufgabe12 (args) {
+  const input = args
+  
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement == "e") {
+      return i
+    }
+  }
+  return -1
+}
+
+export function aufgabe13 (args) {
+  const input = args
+  let latestE = -1
+  
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement == "e") {
+      latestE = i
+    }
+  }
+  return latestE
+
+}
+
+export function aufgabe14 (args) {
+  const input = args
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement = "e") {
+      count++
+    }
+  }
+  if (count == input.length) return 2
+}
+
+export function aufgabe27 (args) {
+  const input = args
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i].charCodeAt(0)
+    
+    if (input.length == 0) return false
+    if (47 >= currentElement || currentElement >= 58) return false
+  }
+  return true
 }
