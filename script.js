@@ -201,6 +201,30 @@ export function aufgabe15 (args) {
   return result.join("")
 }
 
+export function aufgabe16 (args) {
+  const input = args
+  const result1 = []
+  const result2 = []
+  let switch = false
+
+  for (let i = 0; i < input.length; i++) {
+    let currentElement = input[i]
+    
+    if (currentElement == "$") {
+      const switch = true
+    }
+
+    if (switch = false) {
+      result1.push(currentElement)
+    }
+
+    if (switch = true) {
+      result2.push(currentElement)
+    }
+  }
+  return(result1.join(""), result2.join(""))
+}
+
 export function aufgabe27 (args) {
   const input = args
 
