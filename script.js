@@ -72,7 +72,8 @@ export function aufgabe06 (args) {
   for (let i = 0; i < input.length; i++) {
     const ascii = input[i].charCodeAt(0)
 
-    if(0 <= ascii && ascii <=47) return true
+    if(0 <= ascii && ascii <=31) return true
+    else if ( 33<= ascii && ascii <= 47) return true
     else if (58 <= ascii && ascii <= 64) return true
     else if (91 <= ascii && ascii <= 96) return true
     else if (123 <= ascii && ascii <= 127) return true
@@ -168,11 +169,36 @@ export function aufgabe14 (args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    if (currentElement = "e") {
+    if (currentElement == "e") {
       count++
     }
   }
-  if (count == input.length) return 2
+  if (count == input.length) return(2)
+}
+
+export function aufgabe15 (args) {
+  const input = args
+  const result = []
+
+  if (input.lastIndexOf(' ') == input.length - 1) {
+      for (let i = 0; i < input.length - 1; i++) {
+        const currentElement = input[i]
+        result.push(currentElement)
+      }
+  } else {
+    for (let i = 0; i < input.length; i++) {
+      const currentElement = input[i]
+  
+      if (currentElement !== " ") {
+        result.push(currentElement)
+      } else {
+        return result.join("")
+      }
+    }
+
+  }
+
+  return result.join("")
 }
 
 export function aufgabe27 (args) {
