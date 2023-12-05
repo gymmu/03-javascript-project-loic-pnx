@@ -39,17 +39,19 @@ export function aufgabe03(args) {
 }
 
 export function aufgabe04(args) {
-  const input = args
-  let count = 1
-  
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
+  let input = args.replace(/[^a-zA-Z0-9 ]/g, "");
+  let count = 1;
+  if (input.lastIndexOf(' ') == input.length - 1) count--
+  if (input[0] == " ") count--
 
-    if (currentElement === " ") {
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i];
+
+    if (currentElement === " " && input[i-1] !== " ") {
       count++
     }
   }
-  return count
+  return count;
 }
 
 export function aufgabe05 (args) {
@@ -81,6 +83,15 @@ export function aufgabe06 (args) {
   }
   return false
 }
+
+export function aufgabe07 (args) {
+  const input = args
+  const substr = "und"
+  
+  if (input[indexOf("und")].charCodeAt == 55 && input[indexOf("und") !== 0]) return false
+  if (input.includes(substr)) return true
+  return false
+} 
 
 export function aufgabe08(args) {
   const input = args        
@@ -205,24 +216,23 @@ export function aufgabe16 (args) {
   const input = args
   const result1 = []
   const result2 = []
-  let switch = false
+  let switchCase = true
 
   for (let i = 0; i < input.length; i++) {
-    let currentElement = input[i]
+    const currentElement = input[i]
     
-    if (currentElement == "$") {
-      const switch = true
-    }
-
-    if (switch = false) {
-      result1.push(currentElement)
-    }
-
-    if (switch = true) {
-      result2.push(currentElement)
+    if (currentElement === "$") {
+      switchCase = false
+    } else {
+      if (switchCase === true) {
+        result1.push(currentElement)
+      } else {
+        result2.push(currentElement)
+      }
     }
   }
-  return(result1.join(""), result2.join(""))
+  
+  return (result1.join(""), result2.join(""))
 }
 
 export function aufgabe27 (args) {
