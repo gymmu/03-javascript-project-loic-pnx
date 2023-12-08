@@ -84,14 +84,24 @@ export function aufgabe06 (args) {
   return false
 }
 
+
+
 export function aufgabe07 (args) {
   const input = args
-  const substr = "und"
+  const result = []
   
-  if (input[indexOf("und")].charCodeAt == 55 && input[indexOf("und") !== 0]) return false
-  if (input.includes(substr)) return true
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if(currentElement === "u" || input[0] === "U") {
+      if(input[i +1] === "n") {
+        if(input[i + 2] === "d") {
+          return true
+        }
+      }
+    }
+  }
   return false
-} 
+}
 
 export function aufgabe08(args) {
   const input = args        
@@ -185,6 +195,7 @@ export function aufgabe14 (args) {
     }
   }
   if (count == input.length) return(2)
+  else return(-1)
 }
 
 export function aufgabe15 (args) {
@@ -216,23 +227,53 @@ export function aufgabe16 (args) {
   const input = args
   const result1 = []
   const result2 = []
-  let switchCase = true
+  let readText = true
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     
-    if (currentElement === "$") {
-      switchCase = false
+    if (currentElement === "$" && readText !== false) {
+      readText = false
     } else {
-      if (switchCase === true) {
+      if (readText === true) {
         result1.push(currentElement)
-      } else {
+      }
+      else if (readText === false) {
         result2.push(currentElement)
       }
     }
   }
-  
-  return (result1.join(""), result2.join(""))
+  if (result2.join("") !== "") {
+  return result1.join("") + "," + result2.join("")
+  } else {
+    return result1.join("")
+  }
+}
+
+export function aufgabe18 (args) {
+  const input = args
+  const inputName = []
+  const inputAge = []
+  let readText = true
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    
+    if (currentElement === " " && readText !== false) {
+      readText = false
+    } else {
+      if (readText === true) {
+        inputName.push(currentElement)
+      }
+      else if (readText === false) {
+        inputAge.push(currentElement)
+      }
+    }
+  }
+  if (inputName.join("") !== "" && inputAge.join("") !== "") return "Sie heissen " + inputName.join("") + " und sind " + inputAge.join("") + " Jahre alt"
+  if (inputName.join("") == "" && inputAge.join("") !== "") return "Sie heissen" + inputName.join("") + " und sind " + inputAge.join("") + " Jahre alt"
+  if (inputName.join("") !== "" && inputAge.join("") == "") return "Sie heissen " + inputName.join("") + " und sind " + inputAge.join("") + "Jahre alt"
+  if (inputName.join("") == "" && inputAge.join("") == "") return "Sie heissen" + inputName.join("") + " und sind " + inputAge.join("") + "Jahre alt"
 }
 
 export function aufgabe27 (args) {
