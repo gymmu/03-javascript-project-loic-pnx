@@ -112,6 +112,7 @@ export function aufgabe07 (args) {
   return false
 }
 
+
 export function aufgabe08(args) {
   const input = args        
   const result = []                     
@@ -333,6 +334,24 @@ export function aufgabe22 (args) {
 
   }
 
+  return result.join("")
+}
+
+export function aufgabe24 (args) {
+  const input = args
+  const result = []
+
+if (input.lenght === 1) return input
+
+const firstELement = input[0]
+const lastElement = input[input.length - 1]
+
+  result.push(lastElement)
+  for (let i = 1; i < input.length - 1; i++) {
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+  result.push(firstELement)
   return result.join("")
 }
 
