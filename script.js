@@ -20,34 +20,34 @@ export function aufgabe02(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    result.push(currentElement.toUpperCase())               //schreibe das aktuell gewählte Zeichen als Grossbuchstaben ins Resultat
+    result.push(currentElement.toUpperCase()) //schreibe das aktuell gewählte Zeichen als Grossbuchstaben ins Resultat
   }
   return result.join("")
 }
 
 export function aufgabe03(args) {
   const input = args
-  let count = 0
+  let count = 0     //counter Variabel wird erstellt
                             
     for (let i = 0; i < input.length; i++) {          
       const currentElement = input[i]
-      if (currentElement.toLowerCase() === "e" ) {
-        count++
+      if (currentElement.toLowerCase() === "e" ) {      //wenn es sich beim currenElement um ein e oder E handelt 
+        count++    //wird der zähler erhöht
       }
     }
     return count
 }
 
 export function aufgabe04(args) {
-  let input = args.replace(/[^a-zA-Z0-9 ]/g, "");
+  let input = args.replace(/[^a-zA-Z0-9 ]/g, "");     //Im input wird alles was nicht ein Buchstabe oder eine Zahl ist gelöscht
   let count = 1;
-  if (input.lastIndexOf(' ') == input.length - 1) count--
-  if (input[0] == " ") count--
+  if (input.lastIndexOf(' ') == input.length - 1) count--     //wenn das letzte Zeichen ein Leerzeichen ist, wird der Startwert von counter eins niedriger gesetzt
+  if (input[0] == " ") count--      //wenn das erste Zeichen ein Leerzeichen ist, wird der Startwert von counter eins niedriger gesetzt
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i];
 
-    if (currentElement === " " && input[i-1] !== " ") {
+    if (currentElement === " " && input[i-1] !== " ") {     //wenn das aktuelle Zeichen ein Leerzeichen ist, und das vorherige nicht ein Leerzeichen ist (weil dann schon ein Wort gezählt wurde) wird der Wortcounter erhöht
       count++
     }
   }
@@ -58,9 +58,9 @@ export function aufgabe05 (args) {
   const input = args
   
   for (let i = 0; i < input.length; i++) {
-    const currentAscii = input[i].charCodeAt(0)
+    const currentAscii = input[i].charCodeAt(0)     //der ASCII code des aktuellen Elements wird gespeichert
    
-    if (65 <= currentAscii && currentAscii <=90) return true
+    if (65 <= currentAscii && currentAscii <=90) return true    //wenn der ASCII code des aktuellen Elements zwischen 65 und 90 (Großbuchstaben) liegen, wird true zurückgegeben
     
   }
   return false
@@ -74,11 +74,12 @@ export function aufgabe06 (args) {
   for (let i = 0; i < input.length; i++) {
     const ascii = input[i].charCodeAt(0)
 
-    if(0 <= ascii && ascii <=31) return true
-    else if ( 33<= ascii && ascii <= 47) return true
-    else if (58 <= ascii && ascii <= 64) return true
-    else if (91 <= ascii && ascii <= 96) return true
-    else if (123 <= ascii && ascii <= 127) return true
+    if(0 <= ascii && ascii <=31) return true   //wenn der ASCII Code zwischen 0 und 31 liegt, wird true zurückgegeben
+    else if ( 127 <= ascii && ascii <= 159) return true   //wenn der ASCII Code zwischen 127 und 159 liegt, wird true zurückgegeben
+    else if ( 33<= ascii && ascii <= 47) return true      //wenn der ASCII Code zwischen 33 und 47 liegt, wird true zurückgegeben 
+    else if (58 <= ascii && ascii <= 64) return true      //wenn der ASCII Code zwischen 58 und 64 liegt, wird true zurückgegeben
+    else if (91 <= ascii && ascii <= 96) return true      //wenn der ASCII Code zwischen 91 und 96 liegt, wird true zurückgegeben
+    else if (123 <= ascii && ascii <= 127) return true      //wenn der ASCII Code zwischen 123 und 127 liegt, wird true zurückgegeben
   
   }
   return false
@@ -90,12 +91,20 @@ export function aufgabe07 (args) {
   const input = args
   const result = []
   
+  if(input[0] === "U") {
+    if(input[1] === "n") {
+      if(input[2] ==="d") {
+        return true
+      }
+    }
+  }
+ 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    if(currentElement === "u" || input[0] === "U") {
-      if(input[i +1] === "n") {
-        if(input[i + 2] === "d") {
-          return true
+    if(currentElement === "u") {                 //wenn das aktuelle Element ein "u" ist, wird...
+      if(input[i +1] === "n") {                  //wenn das nächste Element ein "n" ist, wird...
+        if(input[i + 2] === "d") {               //wenn das dritte Element ein "d" ist, wird...
+          return true                            //... true zurückgegeben
         }
       }
     }
@@ -302,14 +311,62 @@ export function aufgabe20 (args) {
   return result.join("")
 }
 
+export function aufgabe21 (args) {
+  const input = args
+  const result = []
+  
+for (let i = 0; i < input.length; i++) {
+  const currentElement = input[i]
+  result.push(currentElement)
+}
+
+  return result.join("")
+}
+
+export function aufgabe22 (args) {
+  const input = args
+  const result = []
+  
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (input[i] !== "k" && input[i+1] !== "i" && input[i+2] !== "e" && input[i+3] !== "r") result.push("_")
+
+  }
+
+  return result.join("")
+}
+
 export function aufgabe27 (args) {
   const input = args
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i].charCodeAt(0)
     
-    if (input.length == 0) return false
     if (47 >= currentElement || currentElement >= 58) return false
   }
+  if (input.length < 1) return false
   return true
+}
+
+export function aufgabe28 (args) {
+  const input = args
+  const inputFirst = []
+  const inputSecond = []
+  let readText = true
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    
+    if (currentElement === " " && readText !== false) {
+      readText = false
+    } else {
+      if (readText === true) {
+        inputFirst.push(currentElement)
+      }
+      else if (readText === false) {
+        inputSecond.push(currentElement)
+      }
+    }
+  }
+  return inputFirst.join("") + inputSecond.join("")
 }
