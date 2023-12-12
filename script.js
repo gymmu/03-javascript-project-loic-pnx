@@ -370,6 +370,37 @@ const lastElement = input[input.length - 1]
   return result.join("")
 }
 
+export function aufgabe25 (args) {
+  const input = args
+  const result = []
+  
+  if (input.length <= 2) return ("")
+  if (input.length >= 3) {
+    result.push(input[0])
+    result.push(input[input.length - 1])
+  }
+  return result.join("")
+}
+
+export function aufgabe26 (args) {
+  const input = args
+  const list = input.split("") 
+  for (let i = 0; i < list.length - 1; i++) {
+    const currentElement = list[i]
+    const nextElement = list[i + 1]
+    if (nextElement.charCodeAt(0) < currentElement.charCodeAt(0)) {
+      
+      const temporary = list[i + 1]
+      list[i + 1] = list[i]
+      list[i] = temporary
+      i = -1 
+    }
+  }
+  const result = list.join("")
+  console.log(result)
+  return result
+}
+
 export function aufgabe27 (args) {
   const input = args
 
