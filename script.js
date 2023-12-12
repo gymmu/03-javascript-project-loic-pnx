@@ -337,13 +337,28 @@ export function aufgabe22 (args) {
   return result.join("")
 }
 
+export function aufgabe23 (args) {
+  const input = args
+  const result = []
+  
+  if (input.length === 0) return input
+
+  result.push(input[0])
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+  result.push(input[0])
+  return result.join("")
+}
+
 export function aufgabe24 (args) {
   const input = args
   const result = []
 
-if (input.lenght === 1) return input
+if (input.length === 1) return input
 
-const firstELement = input[0]
+const firstElement = input[0]
 const lastElement = input[input.length - 1]
 
   result.push(lastElement)
@@ -351,7 +366,7 @@ const lastElement = input[input.length - 1]
     const currentElement = input[i]
     result.push(currentElement)
   }
-  result.push(firstELement)
+  result.push(firstElement)
   return result.join("")
 }
 
