@@ -112,6 +112,10 @@ button {
   margin: 5px 10px;
 }
 
+.unfinished {
+  background-color: rgb(255, 145, 0);
+}
+
 .button-container {
   display: flex;
   align-items: center;
