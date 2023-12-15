@@ -202,10 +202,12 @@ export function aufgabe14 (args) {
     const currentElement = input[i]
     if (currentElement == "e") {
       count++
+      if (count === 3) return (i)
     }
   }
   if (count == input.length) return(2)
-  else return(-1)
+  if (count < 3) return(-1)
+  
 }
 
 export function aufgabe15 (args) {
@@ -316,7 +318,7 @@ export function aufgabe21 (args) {
   const input = args
   const result = []
   
-for (let i = 0; i < input.length; i++) {
+for (let i = input.length; i > -1; i--) {
   const currentElement = input[i]
   result.push(currentElement)
 }
@@ -434,4 +436,23 @@ export function aufgabe28 (args) {
     }
   }
   return inputFirst.join("") + inputSecond.join("")
+}
+
+export function bubbleSort(args) {
+  const input = args
+  const list = input.split("") 
+  for (let i = 0; i < list.length - 1; i++) {
+    const currentElement = list[i]
+    const nextElement = list[i + 1]
+    if (nextElement.charCodeAt(0) < currentElement.charCodeAt(0)) {
+      
+      const temporary = list[i + 1]
+      list[i + 1] = list[i]
+      list[i] = temporary
+      i = -1 
+    }
+  }
+  const result = list.join("")
+  console.log(result)
+  return result
 }
