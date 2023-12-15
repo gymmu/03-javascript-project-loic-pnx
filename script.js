@@ -428,6 +428,7 @@ export function aufgabe28 (args) {
     const currentElement = input[i]
     
     if (currentElement === " " && readText !== false) {
+      if (input.charCodeAt(i - 1) < 48 || input.charCodeAt(i - 1) > 57 || input.charCodeAt(i + 1) < 48 || input.charCodeAt(i + 1) > 57) return null
       readText = false
     } else {
       if (readText === true) {
@@ -438,7 +439,7 @@ export function aufgabe28 (args) {
       }
     }
   }
-  return inputFirst.join("") + inputSecond.join("")
+  return parseInt(inputFirst.join("")) + parseInt(inputSecond.join(""))
 }
 
 export function bubbleSort(args) {
